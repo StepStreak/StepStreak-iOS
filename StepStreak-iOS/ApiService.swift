@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 class APIService {
     func sendData(healthData: HealthData, completion: @escaping (Error?) -> Void) {
         // URL of your API

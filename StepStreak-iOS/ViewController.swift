@@ -7,6 +7,7 @@
 
 import UIKit
 import HealthKit
+import Network
 
 class ViewController: UIViewController {
 
@@ -33,6 +34,23 @@ class ViewController: UIViewController {
         ])
     }
 
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if HKHealthStore.isHealthDataAvailable() {
+            print("available")
+        }
+
+        healthService.requestAuthorization { success, error in
+                    if let error = error {
+                        print("Error requesting authorization: \(error)")
+                    } else if success {
+                        print("Authorization granted")
+                    }
+                }
+    }
+    
     @objc func fetchHealthData() {
         let group = DispatchGroup()
 
@@ -73,6 +91,8 @@ class ViewController: UIViewController {
         group.notify(queue: .main) { [weak self] in
             var dailyData: [DailyHealthData] = []
 
+            let monitor = NWPathMonitor()
+
             let stepDates = stepsByDate?.keys.map { $0 } ?? []
             let calorieDates = caloriesByDate?.keys.map { $0 } ?? []
             let distanceDates = distanceByDate?.keys.map { $0 } ?? []
@@ -91,13 +111,24 @@ class ViewController: UIViewController {
             }
 
             let healthData = HealthData(healthData: dailyData)
-            self?.apiService.sendData(healthData: healthData) { error in
-                if let error = error {
-                    print("Error sending health data: \(error.localizedDescription)")
+            
+            monitor.pathUpdateHandler = { path in
+                if path.status == .satisfied {
+                    print("We're connected!")
+                    self?.apiService.sendData(healthData: healthData) { error in
+                        if let error = error {
+                            print("Error sending health data: \(error.localizedDescription)")
+                        } else {
+                            print("Successfully sent health data")
+                        }
+                    }
                 } else {
-                    print("Successfully sent health data")
+                    print("No connection.")
                 }
+                print(path.isExpensive)
             }
+            let queue = DispatchQueue(label: "Network")
+            monitor.start(queue: queue)
         }
     }
 

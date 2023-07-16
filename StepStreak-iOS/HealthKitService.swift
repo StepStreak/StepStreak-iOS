@@ -14,13 +14,13 @@ class HealthKitService {
     func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
         let allTypes = Set([HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
                             HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
-                            HKObjectType.quantityType(forIdentifier: .heartRate)!,
                             HKObjectType.quantityType(forIdentifier: .stepCount)!])
-
+        
         healthStore.requestAuthorization(toShare: [], read: allTypes) { (success, error) in
             completion(success, error)
         }
     }
+    
 
 
     func getStepsCount(completion: @escaping ([Date: Double]?, Error?) -> Void) {
