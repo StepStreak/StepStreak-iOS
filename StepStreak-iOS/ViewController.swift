@@ -57,12 +57,32 @@ class ViewController: UIViewController {
         
         let group = DispatchGroup()
 
-        var stepsByDate: [Date: Double]?
+        var stepsByDate: [Date: Int32]?
         var caloriesByDate: [Date: Double]?
         var distanceByDate: [Date: Double]?
 
+//        let calendar = Calendar.current
+//        var fromComponents = DateComponents()
+//        fromComponents.day = 1
+//        fromComponents.month = 1
+//        fromComponents.year = 2023
+//
+//        guard let startTime = calendar.date(from: fromComponents) else { return  }
+//
+//        var toComponents = DateComponents()
+//        toComponents.day = 30
+//        toComponents.month = 6
+//        toComponents.year = 2023
+//
+//        guard let endTime = calendar.date(from: toComponents) else { return }
+        
+        let endTime = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month], from: endTime)
+        guard let startTime = calendar.date(from: components) else { return }
+        
         group.enter()
-        healthService.getStepsCount { steps, error in
+        healthService.getStepsCount(startTime: startTime, endTime: endTime) { steps, error in
             if let error = error {
                 print("Error reading steps count: \(error.localizedDescription)")
             } else {
@@ -72,7 +92,7 @@ class ViewController: UIViewController {
         }
 
         group.enter()
-        healthService.getCalories { calories, error in
+        healthService.getCalories(startTime: startTime, endTime: endTime) { calories, error in
             if let error = error {
                 print("Error reading calories: \(error.localizedDescription)")
             } else {
@@ -82,7 +102,7 @@ class ViewController: UIViewController {
         }
 
         group.enter()
-        healthService.getDistance { distance, error in
+        healthService.getDistance(startTime: startTime, endTime: endTime) { distance, error in
             if let error = error {
                 print("Error reading distance: \(error.localizedDescription)")
             } else {
@@ -118,6 +138,7 @@ class ViewController: UIViewController {
             monitor.pathUpdateHandler = { path in
                 if path.status == .satisfied {
                     print("We're connected!")
+                    print(healthData)
                     self?.apiService.sendData(healthData: healthData) { error in
                         if let error = error {
                             print("Error sending health data: \(error.localizedDescription)")

@@ -9,7 +9,7 @@ import Foundation
 
 struct DailyHealthData: Encodable {
     let date: String
-    let steps: Double?
+    let steps: Int32?
     let calories: Double?
     let distance: Double?
 }
