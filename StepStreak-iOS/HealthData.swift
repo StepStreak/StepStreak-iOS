@@ -8,5 +8,5 @@
 import Foundation
 
 struct HealthData: Encodable {
-    let healthData: [DailyHealthData]
+    let data: [DailyHealthData]
 }

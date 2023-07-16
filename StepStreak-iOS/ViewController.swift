@@ -113,7 +113,7 @@ class ViewController: UIViewController {
                 dailyData.append(dailyHealthData)
             }
 
-            let healthData = HealthData(healthData: dailyData)
+            let healthData = HealthData(data: dailyData)
             
             monitor.pathUpdateHandler = { path in
                 if path.status == .satisfied {

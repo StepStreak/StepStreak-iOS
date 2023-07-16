@@ -10,7 +10,7 @@ import Foundation
 class APIService {
     func sendData(healthData: HealthData, completion: @escaping (Error?) -> Void) {
         // URL of your API
-        let url = URL(string: "http://192.168.0.89:3000/users")!
+        let url = URL(string: "http://192.168.0.89:4000/api/activities")!
 
         // Create a URLRequest
         var request = URLRequest(url: url)
