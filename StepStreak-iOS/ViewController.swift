@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     let healthService = HealthKitService()
     let apiService = APIService()
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,8 @@ class ViewController: UIViewController {
     }
     
     @objc func fetchHealthData() {
+        activityIndicator.startAnimating()
+        
         let group = DispatchGroup()
 
         var stepsByDate: [Date: Double]?
@@ -121,6 +124,7 @@ class ViewController: UIViewController {
                         } else {
                             print("Successfully sent health data")
                         }
+                        self?.activityIndicator.stopAnimating()
                     }
                 } else {
                     print("No connection.")
