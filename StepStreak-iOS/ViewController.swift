@@ -111,6 +111,17 @@ class ViewController: UIViewController {
             group.leave()
         }
 
+        var heartRateByDate: [Date: Double]?
+        group.enter()
+        healthService.getHeartRate(startTime: startTime, endTime: endTime) { heartRate, error in
+            if let error = error {
+                print("Error reading heart rate: \(error.localizedDescription)")
+            } else {
+                heartRateByDate = heartRate
+            }
+            group.leave()
+        }
+
         group.notify(queue: .main) { [weak self] in
             var dailyData: [DailyHealthData] = []
 
@@ -129,7 +140,8 @@ class ViewController: UIViewController {
                 let steps = stepsByDate?[date] ?? 0
                 let calories = caloriesByDate?[date] ?? 0
                 let distance = distanceByDate?[date] ?? 0
-                let dailyHealthData = DailyHealthData(date: dateString, steps: steps, calories: calories, distance: distance)
+                let heartRate = heartRateByDate?[date] ?? 0
+                let dailyHealthData = DailyHealthData(date: dateString, steps: steps, calories: calories, distance: distance, heartRate: heartRate)
                 dailyData.append(dailyHealthData)
             }
 
