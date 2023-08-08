@@ -14,8 +14,10 @@ class HealthKitService {
     func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
         let allTypes = Set([HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
                             HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
-                            HKObjectType.quantityType(forIdentifier: .stepCount)!])
-        
+                            HKObjectType.quantityType(forIdentifier: .stepCount)!,
+                            HKObjectType.quantityType(forIdentifier: .heartRate)!,
+                            HKObjectType.quantityType(forIdentifier: .restingHeartRate)!])
+
         healthStore.requestAuthorization(toShare: [], read: allTypes) { (success, error) in
             completion(success, error)
         }
@@ -150,7 +152,7 @@ class HealthKitService {
 
         let query = HKStatisticsCollectionQuery(quantityType: heartRate,
                                                 quantitySamplePredicate: predicate,
-                                                options: [.cumulativeSum],
+                                                options: [.discreteAverage],
                                                 anchorDate: startTime,
                                                 intervalComponents: interval)
 
@@ -161,7 +163,7 @@ class HealthKitService {
                 var heartRateByDate = [Date: Double]()
 
                 results.enumerateStatistics(from: startTime, to: endTime) { statistics, _ in
-                    if let quantity = statistics.sumQuantity() {
+                    if let quantity = statistics.averageQuantity() {
                         let date = statistics.startDate
                         let heartRate = quantity.doubleValue(for: HKUnit.count().unitDivided(by: HKUnit.minute()))
                         heartRateByDate[date] = heartRate
@@ -188,7 +190,7 @@ class HealthKitService {
 
         let query = HKStatisticsCollectionQuery(quantityType: restingHeartRate,
                                                 quantitySamplePredicate: predicate,
-                                                options: [.cumulativeSum],
+                                                options: [.discreteAverage],
                                                 anchorDate: startTime,
                                                 intervalComponents: interval)
 
@@ -199,7 +201,7 @@ class HealthKitService {
                 var restingHeartRateByDate = [Date: Double]()
 
                 results.enumerateStatistics(from: startTime, to: endTime) { statistics, _ in
-                    if let quantity = statistics.sumQuantity() {
+                    if let quantity = statistics.averageQuantity() {
                         let date = statistics.startDate
                         let restingHeartRate = quantity.doubleValue(for: HKUnit.count().unitDivided(by: HKUnit.minute()))
                         restingHeartRateByDate[date] = restingHeartRate
