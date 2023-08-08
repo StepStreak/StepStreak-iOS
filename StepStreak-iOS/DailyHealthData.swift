@@ -12,4 +12,6 @@ struct DailyHealthData: Encodable {
     let steps: Int32?
     let calories: Double?
     let distance: Double?
+    let heartRate: Double?
+    let restingHeartRate: Double?
 }

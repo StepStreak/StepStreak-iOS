@@ -101,12 +101,36 @@ class ViewController: UIViewController {
             group.leave()
         }
 
+        var heartRateByDate: [Date: Double]?
+
+        group.enter()
+        healthService.getHeartRate(startTime: startTime, endTime: endTime) { heartRate, error in
+            if let error = error {
+                print("Error reading heart rate: \(error.localizedDescription)")
+            } else {
+                heartRateByDate = heartRate
+            }
+            group.leave()
+        }
+
         group.enter()
         healthService.getDistance(startTime: startTime, endTime: endTime) { distance, error in
             if let error = error {
                 print("Error reading distance: \(error.localizedDescription)")
             } else {
                 distanceByDate = distance
+            }
+            group.leave()
+        }
+        
+        var restingHeartRateByDate: [Date: Double]?
+        
+        group.enter()
+        healthService.getRestingHeartRate(startTime: startTime, endTime: endTime) { restingHeartRate, error in
+            if let error = error {
+                print("Error reading resting heart rate: \(error.localizedDescription)")
+            } else {
+                restingHeartRateByDate = restingHeartRate
             }
             group.leave()
         }
@@ -129,7 +153,9 @@ class ViewController: UIViewController {
                 let steps = stepsByDate?[date] ?? 0
                 let calories = caloriesByDate?[date] ?? 0
                 let distance = distanceByDate?[date] ?? 0
-                let dailyHealthData = DailyHealthData(date: dateString, steps: steps, calories: calories, distance: distance)
+                let heartRate = heartRateByDate?[date] ?? 0
+                let restingHeartRate = restingHeartRateByDate?[date] ?? 0
+                let dailyHealthData = DailyHealthData(date: dateString, steps: steps, calories: calories, distance: distance, heartRate: heartRate, restingHeartRate: restingHeartRate)
                 dailyData.append(dailyHealthData)
             }
 
