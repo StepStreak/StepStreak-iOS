@@ -174,4 +174,42 @@ class HealthKitService {
 
         healthStore.execute(query)
     }
+    
+    func getRestingHeartRate(startTime: Date, endTime: Date, completion: @escaping ([Date: Double]?, Error?) -> Void) {
+        guard let restingHeartRate = HKObjectType.quantityType(forIdentifier: .restingHeartRate) else {
+            completion(nil, nil)
+            return
+        }
+
+        let predicate = HKQuery.predicateForSamples(withStart: startTime, end: endTime, options: .strictStartDate)
+
+        var interval = DateComponents()
+        interval.day = 1
+
+        let query = HKStatisticsCollectionQuery(quantityType: restingHeartRate,
+                                                quantitySamplePredicate: predicate,
+                                                options: [.cumulativeSum],
+                                                anchorDate: startTime,
+                                                intervalComponents: interval)
+
+        query.initialResultsHandler = { query, results, error in
+            if let error = error {
+                completion(nil, error)
+            } else if let results = results {
+                var restingHeartRateByDate = [Date: Double]()
+
+                results.enumerateStatistics(from: startTime, to: endTime) { statistics, _ in
+                    if let quantity = statistics.sumQuantity() {
+                        let date = statistics.startDate
+                        let restingHeartRate = quantity.doubleValue(for: HKUnit.count().unitDivided(by: HKUnit.minute()))
+                        restingHeartRateByDate[date] = restingHeartRate
+                    }
+                }
+
+                completion(restingHeartRateByDate, nil)
+            }
+        }
+
+        healthStore.execute(query)
+    }
 }
