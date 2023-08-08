@@ -9,4 +9,10 @@ import Foundation
 
 struct HealthData: Encodable {
     let data: [DailyHealthData]
+    let heartRateByDate: [Date: Double]?
+    
+    init(data: [DailyHealthData], heartRateByDate: [Date: Double]?) {
+        self.data = data
+        self.heartRateByDate = heartRateByDate
+    }
 }
