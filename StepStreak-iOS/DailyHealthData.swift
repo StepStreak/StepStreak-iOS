@@ -12,4 +12,13 @@ struct DailyHealthData: Encodable {
     let steps: Int32?
     let calories: Double?
     let distance: Double?
+    let heartRate: Double?
+    
+    init(date: String, steps: Int32?, calories: Double?, distance: Double?, heartRate: Double?) {
+        self.date = date
+        self.steps = steps
+        self.calories = calories
+        self.distance = distance
+        self.heartRate = heartRate
+    }
 }
