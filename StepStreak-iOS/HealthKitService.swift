@@ -215,38 +215,27 @@ class HealthKitService {
         healthStore.execute(query)
     }
     
-    func getRestingHeartRate(startTime: Date, endTime: Date, completion: @escaping ([Date: Double]?, Error?) -> Void) {
-        guard let restingHeartRate = HKObjectType.quantityType(forIdentifier: .restingHeartRate) else {
+    func getWorkouts(startTime: Date, endTime: Date, completion: @escaping ([Date: Double]?, Error?) -> Void) {
+        guard let workoutType = HKObjectType.workoutType() else {
             completion(nil, nil)
             return
         }
 
-        let predicate = HKQuery.predicateForSamples(withStart: startTime, end: endTime, options: .strictStartDate)
+        let predicate = HKQuery.predicateForWorkouts(with: .walking, startDate: startTime, endDate: endTime, options: .strictStartDate)
 
-        var interval = DateComponents()
-        interval.day = 1
-
-        let query = HKStatisticsCollectionQuery(quantityType: restingHeartRate,
-                                                quantitySamplePredicate: predicate,
-                                                options: [.discreteAverage],
-                                                anchorDate: startTime,
-                                                intervalComponents: interval)
-
-        query.initialResultsHandler = { query, results, error in
+        let query = HKSampleQuery(sampleType: workoutType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { query, samples, error in
             if let error = error {
                 completion(nil, error)
-            } else if let results = results {
-                var restingHeartRateByDate = [Date: Double]()
+            } else if let samples = samples as? [HKWorkout] {
+                var workoutsByDate = [Date: Double]()
 
-                results.enumerateStatistics(from: startTime, to: endTime) { statistics, _ in
-                    if let quantity = statistics.averageQuantity() {
-                        let date = statistics.startDate
-                        let restingHeartRate = quantity.doubleValue(for: HKUnit.count().unitDivided(by: HKUnit.minute()))
-                        restingHeartRateByDate[date] = restingHeartRate
-                    }
+                for workout in samples {
+                    let date = workout.startDate
+                    let duration = workout.duration
+                    workoutsByDate[date] = duration
                 }
 
-                completion(restingHeartRateByDate, nil)
+                completion(workoutsByDate, nil)
             }
         }
 
