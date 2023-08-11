@@ -14,4 +14,5 @@ struct DailyHealthData: Encodable {
     let distance: Double?
     let heartRate: Double?
     let restingHeartRate: Double?
+    let maxHeartRate: Double?
 }
