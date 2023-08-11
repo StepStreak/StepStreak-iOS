@@ -60,18 +60,21 @@ class ViewController: UIViewController {
         var stepsByDate: [Date: Int32]?
         var caloriesByDate: [Date: Double]?
         var distanceByDate: [Date: Double]?
+        var heartRateByDate: [Date: Double]?
+        var maxHeartRateByDate: [Date: Double]?
+        var restingHeartRateByDate: [Date: Double]?
 
 //        let calendar = Calendar.current
 //        var fromComponents = DateComponents()
 //        fromComponents.day = 1
-//        fromComponents.month = 1
-//        fromComponents.year = 2023
+//        fromComponents.month = 10
+//        fromComponents.year = 2018
 //
 //        guard let startTime = calendar.date(from: fromComponents) else { return  }
 //
 //        var toComponents = DateComponents()
-//        toComponents.day = 30
-//        toComponents.month = 6
+//        toComponents.day = 31
+//        toComponents.month = 7
 //        toComponents.year = 2023
 //
 //        guard let endTime = calendar.date(from: toComponents) else { return }
@@ -101,8 +104,6 @@ class ViewController: UIViewController {
             group.leave()
         }
 
-        var heartRateByDate: [Date: Double]?
-
         group.enter()
         healthService.getHeartRate(startTime: startTime, endTime: endTime) { heartRate, error in
             if let error = error {
@@ -112,7 +113,17 @@ class ViewController: UIViewController {
             }
             group.leave()
         }
-
+        
+        group.enter()
+        healthService.getMaxHeartRate(startTime: startTime, endTime: endTime) { maxHeartRate, error in
+            if let error = error {
+                print("Error reading max heart rate: \(error.localizedDescription)")
+            } else {
+                maxHeartRateByDate = maxHeartRate
+            }
+            group.leave()
+        }
+        
         group.enter()
         healthService.getDistance(startTime: startTime, endTime: endTime) { distance, error in
             if let error = error {
@@ -122,8 +133,6 @@ class ViewController: UIViewController {
             }
             group.leave()
         }
-        
-        var restingHeartRateByDate: [Date: Double]?
         
         group.enter()
         healthService.getRestingHeartRate(startTime: startTime, endTime: endTime) { restingHeartRate, error in
@@ -154,8 +163,9 @@ class ViewController: UIViewController {
                 let calories = caloriesByDate?[date] ?? 0
                 let distance = distanceByDate?[date] ?? 0
                 let heartRate = heartRateByDate?[date] ?? 0
+                let maxHeartRate = maxHeartRateByDate?[date] ?? 0
                 let restingHeartRate = restingHeartRateByDate?[date] ?? 0
-                let dailyHealthData = DailyHealthData(date: dateString, steps: steps, calories: calories, distance: distance, heartRate: heartRate, restingHeartRate: restingHeartRate)
+                let dailyHealthData = DailyHealthData(date: dateString, steps: steps, calories: calories, distance: distance, heartRate: heartRate, restingHeartRate: restingHeartRate, maxHeartRate: maxHeartRate)
                 dailyData.append(dailyHealthData)
             }
 
