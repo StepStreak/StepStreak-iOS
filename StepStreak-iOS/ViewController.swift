@@ -20,9 +20,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // Create a button
-        let button = UIButton(type: .system)
-        button.setTitle("Fetch Health Data", for: .normal)
-        button.addTarget(self, action: #selector(fetchHealthData), for: .touchUpInside)
+    let button = UIButton(type: .system)
+    button.setTitle("Fetch Workouts", for: .normal)
+    button.addTarget(self, action: #selector(fetchWorkouts), for: .touchUpInside)
 
         // Add the button to the view
         button.translatesAutoresizingMaskIntoConstraints = false
