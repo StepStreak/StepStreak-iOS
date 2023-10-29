@@ -17,6 +17,12 @@
 		D1B4BFC82A5B4DB500197685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B4BFC62A5B4DB500197685 /* LaunchScreen.storyboard */; };
 		D1B4BFD02A5B4DFE00197685 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4BFCF2A5B4DFE00197685 /* ApiService.swift */; };
 		D1B4BFD22A5B4E1400197685 /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4BFD12A5B4E1400197685 /* HealthKitService.swift */; };
+		D1E1CDCE2AEEB7C2005FAE25 /* Turbo in Frameworks */ = {isa = PBXBuildFile; productRef = D1E1CDCD2AEEB7C2005FAE25 /* Turbo */; };
+		D1E1CDD12AEEB7CC005FAE25 /* Strada in Frameworks */ = {isa = PBXBuildFile; productRef = D1E1CDD02AEEB7CC005FAE25 /* Strada */; };
+		D1E1CDD52AEEB88F005FAE25 /* BridgeComponent+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E1CDD42AEEB88F005FAE25 /* BridgeComponent+App.swift */; };
+		D1E1CDD72AEEB8A6005FAE25 /* SyncButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E1CDD62AEEB8A6005FAE25 /* SyncButtonComponent.swift */; };
+		D1E1CDDA2AEEB8D1005FAE25 /* WKWebViewConfiguration+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E1CDD92AEEB8D1005FAE25 /* WKWebViewConfiguration+App.swift */; };
+		D1E1CDDC2AEEB8F9005FAE25 /* TurboWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E1CDDB2AEEB8F9005FAE25 /* TurboWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +39,10 @@
 		D1B4BFCF2A5B4DFE00197685 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D1B4BFD12A5B4E1400197685 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
 		D1B4BFD32A5B508800197685 /* StepStreak-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "StepStreak-iOS.entitlements"; sourceTree = "<group>"; };
+		D1E1CDD42AEEB88F005FAE25 /* BridgeComponent+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BridgeComponent+App.swift"; sourceTree = "<group>"; };
+		D1E1CDD62AEEB8A6005FAE25 /* SyncButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncButtonComponent.swift; sourceTree = "<group>"; };
+		D1E1CDD92AEEB8D1005FAE25 /* WKWebViewConfiguration+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebViewConfiguration+App.swift"; sourceTree = "<group>"; };
+		D1E1CDDB2AEEB8F9005FAE25 /* TurboWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurboWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E1CDCE2AEEB7C2005FAE25 /* Turbo in Frameworks */,
+				D1E1CDD12AEEB7CC005FAE25 /* Strada in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +77,8 @@
 		D1B4BFBA2A5B4DB300197685 /* StepStreak-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D1E1CDD82AEEB8B8005FAE25 /* Web */,
+				D1E1CDD32AEEB86A005FAE25 /* Strada */,
 				D1B4BFD32A5B508800197685 /* StepStreak-iOS.entitlements */,
 				D1B4BFBB2A5B4DB300197685 /* AppDelegate.swift */,
 				D1B4BFBD2A5B4DB300197685 /* SceneDelegate.swift */,
@@ -77,8 +91,26 @@
 				D1B4BFD12A5B4E1400197685 /* HealthKitService.swift */,
 				D18D70D72A5B65CD0027862B /* HealthData.swift */,
 				D18D70D92A5B6D920027862B /* DailyHealthData.swift */,
+				D1E1CDDB2AEEB8F9005FAE25 /* TurboWebViewController.swift */,
 			);
 			path = "StepStreak-iOS";
+			sourceTree = "<group>";
+		};
+		D1E1CDD32AEEB86A005FAE25 /* Strada */ = {
+			isa = PBXGroup;
+			children = (
+				D1E1CDD42AEEB88F005FAE25 /* BridgeComponent+App.swift */,
+				D1E1CDD62AEEB8A6005FAE25 /* SyncButtonComponent.swift */,
+			);
+			path = Strada;
+			sourceTree = "<group>";
+		};
+		D1E1CDD82AEEB8B8005FAE25 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				D1E1CDD92AEEB8D1005FAE25 /* WKWebViewConfiguration+App.swift */,
+			);
+			path = Web;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +129,10 @@
 			dependencies = (
 			);
 			name = "StepStreak-iOS";
+			packageProductDependencies = (
+				D1E1CDCD2AEEB7C2005FAE25 /* Turbo */,
+				D1E1CDD02AEEB7CC005FAE25 /* Strada */,
+			);
 			productName = "StepStreak-iOS";
 			productReference = D1B4BFB82A5B4DB300197685 /* StepStreak-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -125,6 +161,10 @@
 				Base,
 			);
 			mainGroup = D1B4BFAF2A5B4DB300197685;
+			packageReferences = (
+				D1E1CDCC2AEEB7C2005FAE25 /* XCRemoteSwiftPackageReference "turbo-ios" */,
+				D1E1CDCF2AEEB7CC005FAE25 /* XCRemoteSwiftPackageReference "strada-ios" */,
+			);
 			productRefGroup = D1B4BFB92A5B4DB300197685 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,12 +192,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E1CDD52AEEB88F005FAE25 /* BridgeComponent+App.swift in Sources */,
 				D18D70DA2A5B6D920027862B /* DailyHealthData.swift in Sources */,
 				D1B4BFC02A5B4DB300197685 /* ViewController.swift in Sources */,
 				D1B4BFBC2A5B4DB300197685 /* AppDelegate.swift in Sources */,
+				D1E1CDDA2AEEB8D1005FAE25 /* WKWebViewConfiguration+App.swift in Sources */,
 				D1B4BFD02A5B4DFE00197685 /* ApiService.swift in Sources */,
+				D1E1CDD72AEEB8A6005FAE25 /* SyncButtonComponent.swift in Sources */,
 				D18D70D82A5B65CD0027862B /* HealthData.swift in Sources */,
 				D1B4BFD22A5B4E1400197685 /* HealthKitService.swift in Sources */,
+				D1E1CDDC2AEEB8F9005FAE25 /* TurboWebViewController.swift in Sources */,
 				D1B4BFBE2A5B4DB300197685 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,7 +362,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,7 +400,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -396,6 +440,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D1E1CDCC2AEEB7C2005FAE25 /* XCRemoteSwiftPackageReference "turbo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hotwired/turbo-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.1;
+			};
+		};
+		D1E1CDCF2AEEB7CC005FAE25 /* XCRemoteSwiftPackageReference "strada-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hotwired/strada-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D1E1CDCD2AEEB7C2005FAE25 /* Turbo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1E1CDCC2AEEB7C2005FAE25 /* XCRemoteSwiftPackageReference "turbo-ios" */;
+			productName = Turbo;
+		};
+		D1E1CDD02AEEB7CC005FAE25 /* Strada */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1E1CDCF2AEEB7CC005FAE25 /* XCRemoteSwiftPackageReference "strada-ios" */;
+			productName = Strada;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D1B4BFB02A5B4DB300197685 /* Project object */;
 }
