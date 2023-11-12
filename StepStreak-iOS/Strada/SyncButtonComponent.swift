@@ -184,7 +184,7 @@ final class SyncButtonComponent: BridgeComponent {
                 dailyData.append(dailyHealthData)
             }
 
-            let healthData = HealthData(data: dailyData)
+            let healthData = HealthData(activity: dailyData)
             
             monitor.pathUpdateHandler = { path in
                 if path.status == .satisfied {
@@ -194,7 +194,6 @@ final class SyncButtonComponent: BridgeComponent {
                             print("Error sending health data: \(error.localizedDescription)")
                         } else {
                             print("Successfully sent health data")
-                            self?.reply(to: Event.connect.rawValue)
                         }
 //                        self?.activityIndicator.stopAnimating()
                     }

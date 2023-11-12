@@ -10,7 +10,7 @@ import Foundation
 class APIService {
     func sendData(healthData: HealthData, completion: @escaping (Error?) -> Void) {
         // URL of your API
-        let url = URL(string: "http://192.168.0.89:4000/api/activities")!
+        let url = URL(string: "http://192.168.0.89:3000/api/activities")!
 
         // Create a URLRequest
         var request = URLRequest(url: url)
@@ -24,6 +24,7 @@ class APIService {
         do {
             // Convert the healthData to JSON and set it as the HTTP body
             let encoder = JSONEncoder()
+            encoder.keyEncodingStrategy = .convertToSnakeCase
             request.httpBody = try encoder.encode(healthData)
         } catch {
             // If encoding fails, call the completion handler with the error and return

@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         window!.rootViewController = navigationController
-        visit(url: URL(string: "http://192.168.0.89:3000/dashboard")!)
+        visit(url: URL(string: "http://192.168.0.89:3000/")!)
     }
     
     private func visit(url: URL, action: VisitAction = .advance) {
@@ -42,7 +42,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private lazy var session: Session = {
         let webView = WKWebView(frame: .zero, configuration: .appConfiguration)
-
+        webView.isInspectable = true
+        
         Bridge.initialize(webView)
         
         let session = Session(webView: webView)
