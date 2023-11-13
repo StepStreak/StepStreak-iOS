@@ -68,6 +68,7 @@ final class SyncButtonComponent: BridgeComponent {
     }
     
     @objc func fetchHealthData() {
+        reply(to: Event.connect.rawValue)
 //        activityIndicator.startAnimating()
         
         let group = DispatchGroup()
