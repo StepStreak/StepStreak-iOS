@@ -10,8 +10,11 @@ import UIKit
 import Turbo
 import Strada
 import WebKit
+import HealthKit
 
-final class TurboWebViewController: VisitableViewController, BridgeDestination {
+final class WebViewController: VisitableViewController, BridgeDestination {
+
+    let healthService = HealthKitService()
 
     private lazy var bridgeDelegate: BridgeDelegate = {
         BridgeDelegate(location: visitableURL.absoluteString,
@@ -34,6 +37,16 @@ final class TurboWebViewController: VisitableViewController, BridgeDestination {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         bridgeDelegate.onViewDidAppear()
+        
+        if HKHealthStore.isHealthDataAvailable() {
+            healthService.requestAuthorization { success, error in
+                if let error = error {
+                    print("Error requesting authorization: \(error)")
+                } else if success {
+                    print("Authorization granted")
+                }
+            }
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
