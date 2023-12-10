@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import KeychainSwift
 
 class APIService {
     func sendData(healthData: HealthData, completion: @escaping (Error?) -> Void) {
+        let keychain = KeychainSwift()
+
         // URL of your API
         let url = URL(string: "http://192.168.0.89:3000/api/activities")!
 
@@ -20,6 +23,7 @@ class APIService {
 
         // Set the Content-Type header to application/json
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(keychain.get("token")!)", forHTTPHeaderField: "Authorization")
 
         do {
             // Convert the healthData to JSON and set it as the HTTP body

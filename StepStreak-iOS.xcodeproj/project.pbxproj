@@ -25,6 +25,8 @@
 		D1E1CDD72AEEB8A6005FAE25 /* SyncButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E1CDD62AEEB8A6005FAE25 /* SyncButtonComponent.swift */; };
 		D1E1CDDA2AEEB8D1005FAE25 /* Turbo+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E1CDD92AEEB8D1005FAE25 /* Turbo+Configuration.swift */; };
 		D1E1CDDC2AEEB8F9005FAE25 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E1CDDB2AEEB8F9005FAE25 /* WebViewController.swift */; };
+		D1FFA2DA2B253AF000E07C44 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1FFA2D92B253AF000E07C44 /* KeychainSwift */; };
+		D1FFA2DC2B253B1E00E07C44 /* TokenComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFA2DB2B253B1E00E07C44 /* TokenComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,7 @@
 		D1E1CDD62AEEB8A6005FAE25 /* SyncButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncButtonComponent.swift; sourceTree = "<group>"; };
 		D1E1CDD92AEEB8D1005FAE25 /* Turbo+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Turbo+Configuration.swift"; sourceTree = "<group>"; };
 		D1E1CDDB2AEEB8F9005FAE25 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		D1FFA2DB2B253B1E00E07C44 /* TokenComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1FFA2DA2B253AF000E07C44 /* KeychainSwift in Frameworks */,
 				D1E1CDCE2AEEB7C2005FAE25 /* Turbo in Frameworks */,
 				D1E1CDD12AEEB7CC005FAE25 /* Strada in Frameworks */,
 			);
@@ -123,6 +127,7 @@
 				D1E1CDD42AEEB88F005FAE25 /* BridgeComponent+App.swift */,
 				D1E1CDD62AEEB8A6005FAE25 /* SyncButtonComponent.swift */,
 				D18A66632B23EE89006DE95C /* NavigationComponent.swift */,
+				D1FFA2DB2B253B1E00E07C44 /* TokenComponent.swift */,
 			);
 			path = Strada;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 			packageProductDependencies = (
 				D1E1CDCD2AEEB7C2005FAE25 /* Turbo */,
 				D1E1CDD02AEEB7CC005FAE25 /* Strada */,
+				D1FFA2D92B253AF000E07C44 /* KeychainSwift */,
 			);
 			productName = "StepStreak-iOS";
 			productReference = D1B4BFB82A5B4DB300197685 /* StepStreak-iOS.app */;
@@ -178,6 +184,7 @@
 			packageReferences = (
 				D1E1CDCC2AEEB7C2005FAE25 /* XCRemoteSwiftPackageReference "turbo-ios" */,
 				D1E1CDCF2AEEB7CC005FAE25 /* XCRemoteSwiftPackageReference "strada-ios" */,
+				D1FFA2D82B253AF000E07C44 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = D1B4BFB92A5B4DB300197685 /* Products */;
 			projectDirPath = "";
@@ -219,6 +226,7 @@
 				D1E1CDDC2AEEB8F9005FAE25 /* WebViewController.swift in Sources */,
 				D18A66622B23EE40006DE95C /* Endpoint.swift in Sources */,
 				D1B4BFBE2A5B4DB300197685 /* SceneDelegate.swift in Sources */,
+				D1FFA2DC2B253B1E00E07C44 /* TokenComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +484,14 @@
 				kind = branch;
 			};
 		};
+		D1FFA2D82B253AF000E07C44 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -488,6 +504,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D1E1CDCF2AEEB7CC005FAE25 /* XCRemoteSwiftPackageReference "strada-ios" */;
 			productName = Strada;
+		};
+		D1FFA2D92B253AF000E07C44 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1FFA2D82B253AF000E07C44 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
