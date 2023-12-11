@@ -13,7 +13,7 @@ class APIService {
         let keychain = KeychainSwift()
 
         // URL of your API
-        let url = URL(string: "http://192.168.0.89:3000/api/activities")!
+        let url = URL(string: "\(Endpoint.apiURL)/activities")!
 
         // Create a URLRequest
         var request = URLRequest(url: url)

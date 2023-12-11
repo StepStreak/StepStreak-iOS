@@ -12,7 +12,15 @@ enum Endpoint {
         #if DEBUG
         return URL(string: "http://192.168.0.89:3000")!
         #else
-        return URL(string: "http://192.168.0.89:3000")!
+        return URL(string: "https://stepstreak.zajelbook.com/")!
+        #endif
+    }
+    
+    static var apiURL: URL {
+        #if DEBUG
+        return URL(string: "http://192.168.0.89:3000/api/")!
+        #else
+        return URL(string: "https://stepstreak.zajelbook.com/api/")!
         #endif
     }
 
