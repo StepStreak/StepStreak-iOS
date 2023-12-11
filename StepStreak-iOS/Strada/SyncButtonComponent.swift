@@ -32,34 +32,70 @@ final class SyncButtonComponent: BridgeComponent {
         }
     }
 
-    private weak var submitBarButtonItem: UIBarButtonItem?
-       private var viewController: UIViewController? {
-           delegate.destination as? UIViewController
-       }
+    let floatingActionButton = UIButton()
+
+    private var viewController: UIViewController? {
+        delegate.destination as? UIViewController
+    }
     
     // MARK: Private
 
     private func handleConnectEvent(message: Message) {
         print("connected component")
-        guard let data: MessageData = message.data() else { return }
 
         guard let viewController else { return }
         
-        let item = UIBarButtonItem(title: data.syncTitle,
-                                   style: .plain,
-                                   target: self,
-                                   action: #selector(performAction))
+        let buttonSize: CGFloat = 60
+        let safeAreaBottomInset = viewController.view.safeAreaInsets.bottom
+        let safeAreaRightInset = viewController.view.safeAreaInsets.right
+
+        floatingActionButton.frame = CGRect(
+            x: viewController.view.bounds.width - buttonSize - 20 - safeAreaRightInset,
+            y: viewController.view.bounds.height - buttonSize - 20 - safeAreaBottomInset,
+            width: buttonSize,
+            height: buttonSize
+        )
+
+        floatingActionButton.backgroundColor = UIColor(rgb: 0x1a56db)
+        floatingActionButton.layer.cornerRadius = buttonSize / 2
+        floatingActionButton.layer.masksToBounds = true
+
+        // Add a shadow
+        floatingActionButton.layer.shadowColor = UIColor.black.cgColor
+        floatingActionButton.layer.shadowOpacity = 1
+        floatingActionButton.layer.shadowOffset = CGSize(width: 3, height: 10)
+        floatingActionButton.layer.shadowRadius = 10
         
-        viewController.navigationItem.rightBarButtonItem = item
-        submitBarButtonItem = item
+        // Set the sync icon
+        let syncIcon = UIImage(systemName: "arrow.triangle.2.circlepath") // iOS 13.0+ system icon
+        floatingActionButton.setImage(syncIcon, for: .normal)
+        floatingActionButton.tintColor = .white
+
+        // Adjust imageView properties
+        floatingActionButton.imageView?.contentMode = .center
+        floatingActionButton.imageView?.clipsToBounds = true
+
+        // Rotate the icon 90 degrees
+        floatingActionButton.imageView?.transform = CGAffineTransform(rotationAngle: .pi / 2)  // 90 degrees in radians
+
+        // Add an action
+        floatingActionButton.addTarget(self, action: #selector(fabTapped), for: .touchUpInside)
+
+        
+        viewController.view.addSubview(floatingActionButton)
+    }
+    
+    @objc func fabTapped() {
+        floatingActionButton.backgroundColor = UIColor(rgb: 0x1a489a)
+        performAction()
     }
 
     private func handleSubmitEnabled() {
-        submitBarButtonItem?.isEnabled = true
+        floatingActionButton.isEnabled = true
     }
     
     private func handleSubmitDisabled() {
-        submitBarButtonItem?.isEnabled = false
+        floatingActionButton.isEnabled = false
     }
     
     @objc func performAction() {

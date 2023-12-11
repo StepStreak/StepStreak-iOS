@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D188A6B32B268D06004DF454 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188A6B22B268D06004DF454 /* UIColor.swift */; };
 		D18A665F2B23EDA3006DE95C /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A665E2B23EDA3006DE95C /* UINavigationBar+Appearance.swift */; };
 		D18A66622B23EE40006DE95C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A66612B23EE40006DE95C /* Endpoint.swift */; };
 		D18A66642B23EE89006DE95C /* NavigationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A66632B23EE89006DE95C /* NavigationComponent.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D188A6B22B268D06004DF454 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D18A665E2B23EDA3006DE95C /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
 		D18A66612B23EE40006DE95C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		D18A66632B23EE89006DE95C /* NavigationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationComponent.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			children = (
 				D1E1CDD92AEEB8D1005FAE25 /* Turbo+Configuration.swift */,
 				D18A665E2B23EDA3006DE95C /* UINavigationBar+Appearance.swift */,
+				D188A6B22B268D06004DF454 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				D1E1CDD52AEEB88F005FAE25 /* BridgeComponent+App.swift in Sources */,
 				D18D70DA2A5B6D920027862B /* DailyHealthData.swift in Sources */,
 				D1B4BFBC2A5B4DB300197685 /* AppDelegate.swift in Sources */,
+				D188A6B32B268D06004DF454 /* UIColor.swift in Sources */,
 				D1E1CDDA2AEEB8D1005FAE25 /* Turbo+Configuration.swift in Sources */,
 				D1B4BFD02A5B4DFE00197685 /* ApiService.swift in Sources */,
 				D1E1CDD72AEEB8A6005FAE25 /* SyncButtonComponent.swift in Sources */,
