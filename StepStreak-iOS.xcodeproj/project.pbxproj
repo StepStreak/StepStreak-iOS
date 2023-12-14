@@ -385,12 +385,14 @@
 				INFOPLIST_FILE = "StepStreak-iOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = StepStreak;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app wants to read your records shared usage";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app wants to access your health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app asks for editing permissions but doesn't need it to work";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -424,12 +426,14 @@
 				INFOPLIST_FILE = "StepStreak-iOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = StepStreak;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app wants to read your records shared usage";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app wants to access your health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app asks for editing permissions but doesn't need it to work";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
