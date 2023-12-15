@@ -306,7 +306,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -360,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -385,8 +385,8 @@
 				INFOPLIST_FILE = "StepStreak-iOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = StepStreak;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app wants to access your health data";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app asks for editing permissions but doesn't need it to work";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "StepStreak wants to access your health data (steps, distance, active calories, heart rate and resting heart rate)";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "StepStreak asks for editing permissions but won't be using it to change your data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -426,8 +426,8 @@
 				INFOPLIST_FILE = "StepStreak-iOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = StepStreak;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app wants to access your health data";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app asks for editing permissions but doesn't need it to work";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "StepStreak wants to access your health data (steps, distance, active calories, heart rate and resting heart rate)";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "StepStreak asks for editing permissions but won't be using it to change your data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
