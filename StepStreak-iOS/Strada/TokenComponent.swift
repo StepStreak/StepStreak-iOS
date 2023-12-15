@@ -34,13 +34,15 @@ final class TokenComponent: BridgeComponent {
         delegate.destination as? UIViewController
     }
     
-    // MARK: Private
-    
+    let apiService = APIService()
+        
     private func handleConnectEvent(message: Message) {
         guard let data: MessageData = message.data() else { return }
         
         let keychain = KeychainSwift()
         keychain.set(data.syncToken, forKey: "token")
+        
+        apiService.sendDeviceTokenToServer()
     }
     
     private func handleSubmitEnabled() {
@@ -51,8 +53,6 @@ final class TokenComponent: BridgeComponent {
     
 }
 
-// MARK: Events
-
 private extension TokenComponent {
     enum Event: String {
         case connect
@@ -60,8 +60,6 @@ private extension TokenComponent {
         case submitDisabled
     }
 }
-
-// MARK: Message data
 
 private extension TokenComponent {
     struct MessageData: Decodable {

@@ -38,6 +38,15 @@ final class WebViewController: VisitableViewController, BridgeDestination {
         super.viewDidAppear(animated)
         bridgeDelegate.onViewDidAppear()
         
+        Task {
+            let center = UNUserNotificationCenter.current()
+            let success = try await center.requestAuthorization(options: [.alert, .badge, .sound])
+            
+            if success {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+        
         if HKHealthStore.isHealthDataAvailable() {
             healthService.requestAuthorization { success, error in
                 if let error = error {

@@ -47,4 +47,29 @@ class APIService {
         // Start the task
         task.resume()
     }
+    
+    func sendDeviceTokenToServer() {
+        let url = URL(string: "\(Endpoint.apiURL)users")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let keychain = KeychainSwift()
+        let token = keychain.get("apn-token")
+        let body: [String: Any?] = ["notification_token": token, "device_type": "ios"]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
+        request.setValue("Bearer \(keychain.get("token")!)", forHTTPHeaderField: "Authorization")
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Error sending token: \(error?.localizedDescription ?? "No error description")")
+                return
+            }
+
+            let responseString = String(data: data, encoding: .utf8)
+            print("Response from server: \(responseString ?? "No response")")
+        }
+        task.resume()
+    }
+
 }
