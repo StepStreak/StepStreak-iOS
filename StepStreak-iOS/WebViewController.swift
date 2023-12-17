@@ -10,11 +10,8 @@ import UIKit
 import Turbo
 import Strada
 import WebKit
-import HealthKit
 
 final class WebViewController: VisitableViewController, BridgeDestination {
-
-    let healthService = HealthKitService()
 
     private lazy var bridgeDelegate: BridgeDelegate = {
         BridgeDelegate(location: visitableURL.absoluteString,
@@ -44,16 +41,6 @@ final class WebViewController: VisitableViewController, BridgeDestination {
             
             if success {
                 UIApplication.shared.registerForRemoteNotifications()
-            }
-        }
-        
-        if HKHealthStore.isHealthDataAvailable() {
-            healthService.requestAuthorization { success, error in
-                if let error = error {
-                    print("Error requesting authorization: \(error)")
-                } else if success {
-                    print("Authorization granted")
-                }
             }
         }
     }
