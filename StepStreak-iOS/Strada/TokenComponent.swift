@@ -42,7 +42,9 @@ final class TokenComponent: BridgeComponent {
         let keychain = KeychainSwift()
         keychain.set(data.syncToken, forKey: "token")
         
-        apiService.sendDeviceTokenToServer()
+        if (keychain.get("server-apn-token") != keychain.get("apn-token")) {
+            apiService.sendDeviceTokenToServer()
+        }
     }
     
     private func handleSubmitEnabled() {

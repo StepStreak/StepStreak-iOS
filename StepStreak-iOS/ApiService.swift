@@ -67,6 +67,7 @@ class APIService {
             }
 
             let responseString = String(data: data, encoding: .utf8)
+            keychain.set(token!, forKey: "server-apn-token")
             print("Response from server: \(responseString ?? "No response")")
         }
         task.resume()
