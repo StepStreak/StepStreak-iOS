@@ -12,7 +12,7 @@ enum Endpoint {
         #if DEBUG
         return URL(string: "http://192.168.0.89:3000")!
         #else
-        return URL(string: "https://stepstreak.zajelbook.com/")!
+        return URL(string: "https://stepstreak.xyz/")!
         #endif
     }
     
@@ -20,7 +20,7 @@ enum Endpoint {
         #if DEBUG
         return URL(string: "http://192.168.0.89:3000/api/")!
         #else
-        return URL(string: "https://stepstreak.zajelbook.com/api/")!
+        return URL(string: "https://stepstreak.xyz/api/")!
         #endif
     }
 
