@@ -13,7 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private lazy var navigator = TurboNavigator(pathConfiguration: pathConfiguration, delegate: self)
     private let pathConfiguration = PathConfiguration(sources: [
-        .server(Endpoint.pathConfigurationURL)
+        .server(Endpoint.pathConfigurationURL),
+        .file(Bundle.main.url(forResource: "path-configuration", withExtension: "json")!)
     ])
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -27,6 +28,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate: TurboNavigatorDelegate {
     func handle(proposal: VisitProposal) -> ProposalResult {
-        .acceptCustom(WebViewController(url: proposal.url))
+        switch proposal.viewController {
+        case "permissions":
+            return .acceptCustom(PermissionsViewController(url: proposal.url))
+        default:
+            return .acceptCustom(WebViewController(url: proposal.url))
+
+        }
+
     }
 }

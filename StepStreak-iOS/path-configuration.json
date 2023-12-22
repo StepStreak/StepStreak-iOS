@@ -1,0 +1,24 @@
+{
+  "settings": {},
+  "rules": [
+    {
+      "patterns": ["/challenge_users/new$", "/sessions/new$", "/users/new$", "/privacy"],
+      "properties": {
+        "context": "modal"
+      }
+    },
+    {
+      "patterns": ["/welcome"],
+      "properties": {
+        "presentation": "replace"
+      }
+    },
+    {
+      "patterns": ["/permissions"],
+      "properties": {
+        "view_controller": "permissions",
+        "presentation": "replace"
+      }
+    }
+  ]
+}

@@ -26,6 +26,8 @@
 		D1E1CDD72AEEB8A6005FAE25 /* SyncButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E1CDD62AEEB8A6005FAE25 /* SyncButtonComponent.swift */; };
 		D1E1CDDA2AEEB8D1005FAE25 /* Turbo+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E1CDD92AEEB8D1005FAE25 /* Turbo+Configuration.swift */; };
 		D1E1CDDC2AEEB8F9005FAE25 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E1CDDB2AEEB8F9005FAE25 /* WebViewController.swift */; };
+		D1EA4E3D2B34E4D8007212E4 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EA4E3C2B34E4D8007212E4 /* PermissionsViewController.swift */; };
+		D1EA4E3F2B34EDE5007212E4 /* path-configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = D1EA4E3E2B34EDE5007212E4 /* path-configuration.json */; };
 		D1FFA2DA2B253AF000E07C44 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1FFA2D92B253AF000E07C44 /* KeychainSwift */; };
 		D1FFA2DC2B253B1E00E07C44 /* TokenComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFA2DB2B253B1E00E07C44 /* TokenComponent.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +53,8 @@
 		D1E1CDD62AEEB8A6005FAE25 /* SyncButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncButtonComponent.swift; sourceTree = "<group>"; };
 		D1E1CDD92AEEB8D1005FAE25 /* Turbo+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Turbo+Configuration.swift"; sourceTree = "<group>"; };
 		D1E1CDDB2AEEB8F9005FAE25 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		D1EA4E3C2B34E4D8007212E4 /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
+		D1EA4E3E2B34EDE5007212E4 /* path-configuration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "path-configuration.json"; sourceTree = "<group>"; };
 		D1FFA2DB2B253B1E00E07C44 /* TokenComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +124,8 @@
 				D18D70D72A5B65CD0027862B /* HealthData.swift */,
 				D18D70D92A5B6D920027862B /* DailyHealthData.swift */,
 				D1E1CDDB2AEEB8F9005FAE25 /* WebViewController.swift */,
+				D1EA4E3C2B34E4D8007212E4 /* PermissionsViewController.swift */,
+				D1EA4E3E2B34EDE5007212E4 /* path-configuration.json */,
 			);
 			path = "StepStreak-iOS";
 			sourceTree = "<group>";
@@ -204,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B4BFC82A5B4DB500197685 /* LaunchScreen.storyboard in Resources */,
+				D1EA4E3F2B34EDE5007212E4 /* path-configuration.json in Resources */,
 				D1B4BFC52A5B4DB500197685 /* Assets.xcassets in Resources */,
 				D1B4BFC32A5B4DB300197685 /* Main.storyboard in Resources */,
 			);
@@ -218,6 +225,7 @@
 			files = (
 				D18A66642B23EE89006DE95C /* NavigationComponent.swift in Sources */,
 				D1E1CDD52AEEB88F005FAE25 /* BridgeComponent+App.swift in Sources */,
+				D1EA4E3D2B34E4D8007212E4 /* PermissionsViewController.swift in Sources */,
 				D18D70DA2A5B6D920027862B /* DailyHealthData.swift in Sources */,
 				D1B4BFBC2A5B4DB300197685 /* AppDelegate.swift in Sources */,
 				D188A6B32B268D06004DF454 /* UIColor.swift in Sources */,
@@ -400,7 +408,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stepstreak.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -441,7 +449,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stepstreak.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -9,24 +9,12 @@ import UIKit
 import UserNotifications
 import KeychainSwift
 import UserNotifications
-import HealthKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        application.applicationIconBadgeNumber = 0
+        UNUserNotificationCenter.current().setBadgeCount(0)
 
-        let healthService = HealthKitService()
-
-        if HKHealthStore.isHealthDataAvailable() {
-            healthService.requestAuthorization { success, error in
-                if let error = error {
-                    print("Error requesting authorization: \(error)")
-                } else if success {
-                    print("Authorization granted")
-                }
-            }
-        }
         return true
     }
 

@@ -11,8 +11,14 @@ import WebKit
 
 extension Turbo {
     static func configureStrada() {
+        let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
+
+        print("App version \(String(describing: currentVersion))")
         Turbo.config.userAgent +=
             " \(Strada.userAgentSubstring(for: BridgeComponent.allTypes))"
+        
+        Turbo.config.userAgent +=
+        " - \(currentVersion ?? "")"
 
         Turbo.config.makeCustomWebView = { configuration in
             let webView = WKWebView(frame: .zero, configuration: configuration)
