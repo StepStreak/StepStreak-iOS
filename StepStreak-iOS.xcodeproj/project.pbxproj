@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D11E1E2D2B4AFD8800D330B0 /* UIToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11E1E2C2B4AFD8700D330B0 /* UIToast.swift */; };
 		D188A6B32B268D06004DF454 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188A6B22B268D06004DF454 /* UIColor.swift */; };
 		D18A665F2B23EDA3006DE95C /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A665E2B23EDA3006DE95C /* UINavigationBar+Appearance.swift */; };
 		D18A66622B23EE40006DE95C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A66612B23EE40006DE95C /* Endpoint.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D11E1E2C2B4AFD8700D330B0 /* UIToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIToast.swift; sourceTree = "<group>"; };
 		D188A6B22B268D06004DF454 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D18A665E2B23EDA3006DE95C /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
 		D18A66612B23EE40006DE95C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				D1E1CDD92AEEB8D1005FAE25 /* Turbo+Configuration.swift */,
 				D18A665E2B23EDA3006DE95C /* UINavigationBar+Appearance.swift */,
 				D188A6B22B268D06004DF454 /* UIColor.swift */,
+				D11E1E2C2B4AFD8700D330B0 /* UIToast.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				D18A66622B23EE40006DE95C /* Endpoint.swift in Sources */,
 				D1B4BFBE2A5B4DB300197685 /* SceneDelegate.swift in Sources */,
 				D1FFA2DC2B253B1E00E07C44 /* TokenComponent.swift in Sources */,
+				D11E1E2D2B4AFD8800D330B0 /* UIToast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,7 +393,7 @@
 				CODE_SIGN_ENTITLEMENTS = "StepStreak-iOS/StepStreak-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = TMMCN92Z6F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "StepStreak-iOS/Info.plist";
@@ -408,7 +412,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stepstreak.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -430,7 +434,7 @@
 				CODE_SIGN_ENTITLEMENTS = "StepStreak-iOS/StepStreak-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = TMMCN92Z6F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "StepStreak-iOS/Info.plist";
@@ -449,7 +453,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stepstreak.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

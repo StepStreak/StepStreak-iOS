@@ -37,14 +37,29 @@ class APIService {
         }
 
         // Create a URLSessionDataTask to send the request
-        let task = URLSession.shared.dataTask(with: request) { (_, _, error) in
-            // Call the completion handler on the main queue, because this closure is executed on a background queue
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
-                completion(error)
+                if let error = error {
+                    completion(error)
+                    return
+                }
+
+                // Check for HTTP response status codes
+                if let httpResponse = response as? HTTPURLResponse {
+                    switch httpResponse.statusCode {
+                    case 200...299:
+                        completion(nil)
+                    case 401:
+                        completion(NSError(domain: "", code: 401, userInfo: [NSLocalizedDescriptionKey : "Token expired. Please refresh the page."]))
+                    default:
+                        completion(NSError(domain: "", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey : "Received HTTP \(httpResponse.statusCode)"]))
+                    }
+                } else {
+                    completion(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "No valid HTTP response received."]))
+                }
             }
         }
 
-        // Start the task
         task.resume()
     }
     

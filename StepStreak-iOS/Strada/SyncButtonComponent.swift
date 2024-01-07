@@ -228,11 +228,10 @@ final class SyncButtonComponent: BridgeComponent {
                     print("We're connected!")
                     self?.apiService.sendData(healthData: healthData) { error in
                         if let error = error {
-                            print("Error sending health data: \(error.localizedDescription)")
+                            self?.viewController?.showToast(message: error.localizedDescription)
                         } else {
                             print("Successfully sent health data")
                         }
-//                        self?.activityIndicator.stopAnimating()
                     }
                 } else {
                     print("No connection.")
