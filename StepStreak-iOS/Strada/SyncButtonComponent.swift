@@ -41,8 +41,8 @@ final class SyncButtonComponent: BridgeComponent {
     // MARK: Private
 
     private func handleConnectEvent(message: Message) {
-        print("connected component")
-
+        guard let data: MessageData = message.data() else { return }
+        
         guard let viewController else { return }
         
         let buttonSize: CGFloat = 60
@@ -50,8 +50,8 @@ final class SyncButtonComponent: BridgeComponent {
         let safeAreaRightInset = viewController.view.safeAreaInsets.right
 
         floatingActionButton.frame = CGRect(
-            x: viewController.view.bounds.width - buttonSize - 20 - safeAreaRightInset,
-            y: viewController.view.bounds.height - buttonSize - 20 - safeAreaBottomInset,
+            x: viewController.view.bounds.width - buttonSize - CGFloat(Int(data.syncX) ?? 20) - safeAreaRightInset,
+            y: viewController.view.bounds.height - buttonSize - CGFloat(Int(data.syncY) ?? 50) - safeAreaBottomInset,
             width: buttonSize,
             height: buttonSize
         )
@@ -259,5 +259,7 @@ private extension SyncButtonComponent {
 private extension SyncButtonComponent {
     struct MessageData: Decodable {
         let syncTitle: String
+        let syncX: String
+        let syncY: String
     }
 }
