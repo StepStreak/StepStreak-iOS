@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hotwired/strada-ios",
       "state" : {
-        "branch" : "fix-redirect-issue",
-        "revision" : "beec8c36e115a4b945a7e23e5e336ea4c4288e4e"
+        "revision" : "a44a86d4bab98d29cbba31446ee4834670613119",
+        "version" : "1.0.0-beta2"
       }
     },
     {
@@ -24,7 +24,7 @@
       "location" : "https://github.com/hotwired/turbo-ios",
       "state" : {
         "branch" : "turbo-navigator",
-        "revision" : "cd4f71e0a82bd116bcceebc8aee742d00e1fc2d4"
+        "revision" : "c9088995ff47a765207db1f7e474ff3152ab431c"
       }
     }
   ],

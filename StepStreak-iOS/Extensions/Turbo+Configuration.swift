@@ -10,7 +10,7 @@ import Turbo
 import WebKit
 
 extension Turbo {
-    static func configureStrada() {
+    @MainActor static func configureStrada() {
         let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
 
         print("App version \(String(describing: currentVersion))")
