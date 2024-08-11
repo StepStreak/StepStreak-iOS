@@ -9,6 +9,7 @@ import Foundation
 import Strada
 import UIKit
 import Network
+import KeychainSwift
 
 final class SyncButtonComponent: BridgeComponent {
     override class var name: String { "sync" }
@@ -25,6 +26,18 @@ final class SyncButtonComponent: BridgeComponent {
         switch event {
         case .connect:
             handleConnectEvent(message: message)
+            
+            let keychain = KeychainSwift()
+            let lastSyncTimestampString = keychain.get("sync-time")
+            let currentTimestamp = Date().timeIntervalSince1970
+
+            if let lastSyncTimestampString = lastSyncTimestampString,
+               let lastSyncTimestamp = Double(lastSyncTimestampString),
+               isTwelveHoursBetween(TimeInterval(lastSyncTimestamp), currentTimestamp) {
+                fetchHealthData()
+            } else if lastSyncTimestampString == nil {
+                fetchHealthData()
+            }
         case .submitEnabled:
             handleSubmitEnabled()
         case .submitDisabled:
@@ -238,9 +251,27 @@ final class SyncButtonComponent: BridgeComponent {
                 }
                 print(path.isExpensive)
             }
+            
+            self!.setSyncTimestamp()
+            
             let queue = DispatchQueue(label: "Network")
             monitor.start(queue: queue)
         }
+    }
+
+    private func isTwelveHoursBetween(_ timestamp1: TimeInterval, _ timestamp2: TimeInterval) -> Bool {
+        let twelveHoursInSeconds: TimeInterval = 12 * 60 * 60
+        let difference = abs(timestamp1 - timestamp2)
+        
+        return difference >= twelveHoursInSeconds
+    }
+    
+    private func setSyncTimestamp() {
+        let keychain = KeychainSwift()
+        let currentTimestamp = Date().timeIntervalSince1970
+        let timestampString = String(Int(currentTimestamp))
+        
+        keychain.set(timestampString, forKey: "sync-time")
     }
 }
 
