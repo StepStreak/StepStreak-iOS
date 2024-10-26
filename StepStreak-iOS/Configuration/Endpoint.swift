@@ -9,16 +9,30 @@ import Foundation
 
 enum Endpoint {
     static var rootURL: URL {
+        let baseURL: URL
         #if DEBUG
-        return URL(string: "http://192.168.0.89:3000")!
+        baseURL = URL(string: "http://localhost:3000")!
         #else
-        return URL(string: "https://stepstreak.xyz/")!
+        baseURL = URL(string: "https://stepstreak.xyz")!
         #endif
+        
+        let languageCode: String
+         if let preferredLanguage = Locale.preferredLanguages.first {
+             languageCode = String(preferredLanguage.prefix(2))
+         } else {
+             languageCode = "en"
+         }
+        
+        var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)!
+        
+        components.queryItems = [URLQueryItem(name: "locale", value: languageCode)]
+        
+        return components.url!
     }
     
     static var apiURL: URL {
         #if DEBUG
-        return URL(string: "http://192.168.0.89:3000/api/")!
+        return URL(string: "http://localhost:3000/api/")!
         #else
         return URL(string: "https://stepstreak.xyz/api/")!
         #endif

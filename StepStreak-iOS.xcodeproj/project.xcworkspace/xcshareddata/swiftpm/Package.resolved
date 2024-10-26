@@ -1,4 +1,5 @@
 {
+  "originHash" : "a9818ed7d79fe4b6f3965388a69424e4ca04f3d18ec284287fbe42f3ee987dc8",
   "pins" : [
     {
       "identity" : "keychain-swift",
@@ -24,9 +25,9 @@
       "location" : "https://github.com/hotwired/turbo-ios",
       "state" : {
         "branch" : "turbo-navigator",
-        "revision" : "15a9958e0d0216ed30f29c78deb146e962e1564d"
+        "revision" : "3ce4f977e1dc8eb5b2eeefb81a07bc344e230584"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
